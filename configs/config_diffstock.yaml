@@ -1,0 +1,52 @@
+qlib_init:
+  provider_uri: "/data/linq/.qlib/qlib_data/cn_data"
+  region: cn
+
+
+model_config: &model_config
+  seq_len: 20
+  pred_len: 1
+  e_layers: 2
+  enc_in: 360
+  dec_in: 360
+  c_out: 1
+  d_model: 256   # 512
+  d_ff: 32
+  dropout: 0.1
+  num_samples: 1 # 5
+
+
+task:
+  model:
+    class: QniverseModel
+    module_path: src/model_backbone.py
+    kwargs:
+      lr: 0.0001
+      n_epochs: 1
+      max_steps_per_epoch: 1000
+      early_stop: 1
+      seed: 2024
+      logdir: output/DiffStock
+      model_type: DiffStock
+      model_config: *model_config
+      freeze_model: False
+      model_init_state:
+  dataset:
+    class: MTSDatasetH
+    kwargs:
+      seq_len: 20
+      horizon: 1
+      batch_size: 32
+  qlib_dataset:
+    class: BENCH_LPY
+    kwargs:
+      market: csi300_ext
+      benchmark: SH000300 
+      feat: Alpha360
+      label: r1
+
+
+strategy_config: &strategy_config
+  topk: 10
+  bad_thresh: -0.05
+  hold_thresh: 2

@@ -1,0 +1,64 @@
+qlib_init:
+  provider_uri: "~/qlib_data/cn_data"
+  region: cn
+
+data_loader_config: &data_loader_config
+  class: StaticDataLoader
+  module_path: qlib.data.dataset.loader
+  kwargs:
+    config: ./data/FinTSB_cn/merged_dataset.pkl  # filepath
+
+
+model_config: &model_config
+  seq_len: 20
+  pred_len: 1
+  e_layers: 1
+  factor: 3
+  enc_in: 5
+  patch_len: 5
+  stride: 5
+  c_out: 1
+  d_model: 64
+  d_ff: 64
+  n_heads: 2
+  dropout: 0.1
+  activation: 'gelu'
+
+
+task:
+  model:
+    class: QniverseModel
+    module_path: src/model_backbone.py
+    kwargs:
+      lr: 0.0001
+      n_epochs: 3
+      max_steps_per_epoch: 5000
+      early_stop: 1
+      seed: 2025
+      logdir: output/patchtst
+      model_type: PatchTST
+      model_config: *model_config
+      freeze_model: False
+      model_init_state:
+  dataset:
+    class: UnifiedTSDatasetH
+    module_path: src/dataset.py
+    kwargs:
+      handler:
+        class: DataHandler
+        module_path: qlib.data.dataset.handler
+        kwargs:
+          data_loader: *data_loader_config
+      segments:
+        train: [ 2000-01-03, 2000-09-01 ]
+        valid: [ 2000-09-04, 2000-10-06 ]
+        test: [ 2000-10-09, 2000-12-15 ]
+      seq_len: 20
+      horizon: 1
+      batch_size: 512
+
+
+strategy_config: &strategy_config
+  topk: 30
+  hold_thre: 5
+  commission_rate: 0.001

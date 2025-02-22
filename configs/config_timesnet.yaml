@@ -1,0 +1,56 @@
+qlib_init:
+  provider_uri: "/data/linq/.qlib/qlib_data/cn_data"
+  region: cn
+
+model_config: &model_config
+  seq_len: 20
+  pred_len: 1
+  e_layers: 2
+  factor: 3
+  enc_in: 360
+  top_k: 2
+  c_out: 1
+  d_model: 64
+  d_ff: 32
+  n_heads: 4
+  num_kernels: 6
+  dropout: 0.1
+  freq: 'd'
+  embed: 'timeF'
+  activation: 'gelu'
+
+
+strategy_config: &strategy_config
+  topk: 10
+  bad_thresh: -0.15
+  hold_thresh: 2
+
+
+task:
+  model:
+    class: QniverseModel
+    module_path: src/model_backbone.py
+    kwargs:
+      lr: 0.0001
+      n_epochs: 1
+      max_steps_per_epoch: 1000
+      early_stop: 1
+      seed: 2024
+      logdir: output/timesnet
+      model_type: TimesNet
+      model_config: *model_config
+      freeze_model: False
+      model_init_state:
+  dataset:
+    class: MTSDatasetH
+    kwargs:
+      seq_len: 20
+      horizon: 1
+      batch_size: 32
+  qlib_dataset:
+    class: BENCH_Step
+    kwargs:
+      market: csi1300_ext
+      benchmark: SH000300 
+      feat: Alpha360
+      label: r1

@@ -1,0 +1,47 @@
+qlib_init:
+  provider_uri: "~/qlib_data/cn_data"
+  region: cn
+
+data_loader_config: &data_loader_config
+  class: StaticDataLoader
+  module_path: qlib.data.dataset.loader
+  kwargs:
+    config: ./data/FinTSB_cn/gbdt_merged_dataset.pkl  # filepath
+    
+
+task:
+  model:
+    class: XGBModel
+    module_path: qlib.contrib.model.xgboost
+    kwargs:
+      eval_metric: rmse
+      logdir: output/xgboost
+      model_type: XGBoost
+      colsample_bytree: 0.8
+      eta: 0.1
+      max_depth: 6
+      n_estimators: 100
+      subsample: 0.5
+      nthread: 20
+  dataset:
+    class: DatasetH
+    module_path: qlib.data.dataset
+    kwargs:
+      handler:
+        class: DataHandler
+        module_path: qlib.data.dataset.handler
+        kwargs:
+          data_loader: *data_loader_config
+      segments:
+        train: [ 2000-01-03, 2000-09-01 ]
+        valid: [ 2000-09-04, 2000-10-06 ]
+        test: [ 2000-10-09, 2000-12-15 ]
+      seq_len: 20
+      horizon: 1
+      batch_size: 512
+
+
+strategy_config: &strategy_config
+  topk: 30
+  hold_thre: 5
+  commission_rate: 0.001
