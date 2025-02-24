@@ -38,7 +38,7 @@ all_predictions = []
 for current_date in tqdm(forecast_dates):
     
     history = (
-        df.xs(slice(None, current_date - pd.Timedelta(days=1)), level='date')  # 只保留过去的数据
+        df.xs(slice(None, current_date - pd.Timedelta(days=1)), level='date')
         .groupby('instrument')
         .tail(lookback_length)
     )
