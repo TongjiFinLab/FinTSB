@@ -7,9 +7,14 @@
 
 ## 🌟 Overview
 
-FinTSB is a comprehensive and practical financial time series benchmark. Our goal is to address the three systemic limitations in evaluation of the Financial Time Series Forecasting field. 1. Failure to account for the full spectrum of stock movement patterns observed in dynamic financial markets. (**Diversity Gap**), 2. The absence of unified assessment protocols undermines the validity of cross-study performance comparisons. (**Standardization Deficit**), and 3. Neglect of critical market structure factors, resulting in inflated performance metrics that lack practical applicability. (**Real-World Mismatch**).
+**FinTSB** is a comprehensive and practical financial time series benchmark. Our goal is to address the three systemic limitations in the evaluation of the Financial Time Series Forecasting field.<br>
+➊ Failure to account for the full spectrum of stock movement patterns observed in dynamic financial markets (**Diversity Gap**).<br>
+➋ The absence of unified assessment protocols undermines the validity of cross-study performance comparisons (**Standardization Deficit**).<br>
+➌ Neglect of critical market structure factors, resulting in inflated performance metrics that lack practical applicability (**Real-World Mismatch**).<br>
 
-![](./assets/motivation.png)
+<div align="center">
+      <img src="./assets/motivation.png" style="width:80%; ">
+</div>
 
 ## 🛠 Prerequisites
 
@@ -21,7 +26,7 @@ pip install -r requirements.txt
 
 ## 📊 Prepare Datastes
 
-Begin by downloading the required datasets. All datasets are conveniently available at [https://quantapi.eastmoney.com/](https://quantapi.eastmoney.com/). After downloading the data, you should pre-process as in our paper (We will open source as soon as the camera-ready version of the paper is published). Finally, create a separate folder named `./data` and neatly organize all the csv files as shown below:
+Begin by downloading the required datasets. All datasets are conveniently available at [https://quantapi.eastmoney.com/](https://quantapi.eastmoney.com/). After downloading the data, you should preprocess it as outlined in our paper (We will open source it as soon as the camera-ready version of the paper is published). Finally, create a separate folder named `./data` and neatly organize all the CSV files as shown below:
 
 ```
 FinTSB
@@ -53,14 +58,16 @@ FinTSB
 
 ## 💻 Training Pipline
 
-The pipeline of FinTSB includes data layer, Training Layer, Backtesting Layer and Feedback Layer, shown in the below figure.
+The pipeline of FinTSB includes the Data layer, Training layer, Backtesting layer, and Feedback layer, as shown in the figure below.
 
-![](./assets/pipeline.png)
+<div align="center">
+      <img src="./assets/pipeline.png" style="width:80%; ">
+</div>
 
 All configs are located in `./configs`. For instance, to train the LSTM model using the FinTSB dataset, simply run:
 
 ```shell
-python train.py --config_file configs/config_patchtst.yaml
+python train.py --config_file configs/config_lstm.yaml
 ```
 
 After training:
