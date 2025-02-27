@@ -2,8 +2,9 @@
 
 
 ## 📰 News
+🚩 Updates (2025-02-27) Initial version available on arXiv [FinTSB](https://arxiv.org/abs/2502.18834).
 
-🚩 Updates (2025-2-24) Released the first version of the FinTSB code.
+🚩 Updates (2025-02-24) First version of the FinTSB code released.
 
 ## 🌟 Overview
 
@@ -80,18 +81,25 @@ After training:
 ## 📚 Citation
 If you find this repo useful, please consider citing our paper as follows:
 ```bibtex
+@article{hu2025fintsb,
+  title={FinTSB: A Comprehensive and Practical Benchmark for Financial Time Series Forecasting}, 
+  author={Yifan Hu and Yuante Li and Peiyuan Liu and Yuxia Zhu and Naiqi Li and Tao Dai and Shu-tao Xia and Dawei Cheng and Changjun Jiang},
+  journal={arXiv preprint arXiv:2502.18834},
+  year={2025},
+}
+
+@article{hu2025finmamba,
+  title={FinMamba: Market-Aware Graph Enhanced Multi-Level Mamba for Stock Movement Prediction}, 
+  author={Hu, Yifan and Liu, Peiyuan and Li, Yuante and Cheng, Dawei and Li, Naiqi and Dai, Tao and Bao, Jigang and Xia Shu-Tao},
+  journal={arXiv preprint arXiv:2502.06707},
+  year={2025}
+}
+
 @article{hu2025timefilter,
   title={TimeFilter: Patch-Specific Spatial-Temporal Graph Filtration for Time Series Forecasting},
   author={Hu, Yifan and Zhang, Guibin and Liu, Peiyuan and Lan, Disen and Li, Naiqi and Cheng, Dawei and Dai, Tao and Xia, Shu-Tao and Pan, Shirui},
   journal={arXiv preprint arXiv:2501.13041},
   year={2025}
-}
-
-@article{hu2025finmamba,
-      title={FinMamba: Market-Aware Graph Enhanced Multi-Level Mamba for Stock Movement Prediction}, 
-      author={Hu, Yifan and Liu, Peiyuan and Li, Yuante and Cheng, Dawei and Li, Naiqi and Dai, Tao and Bao, Jigang and Xia Shu-Tao},
-      journal={arXiv preprint arXiv:2502.06707},
-      year={2025}
 }
 
 @article{hu2024adaptive,
