@@ -102,10 +102,17 @@ If you find this repo useful, please consider citing our paper as follows:
   year={2025}
 }
 
-@article{hu2024adaptive,
+@inproceedings{hu2025adaptive,
   title={Adaptive Multi-Scale Decomposition Framework for Time Series Forecasting},
   author={Hu, Yifan and Liu, Peiyuan and Zhu, Peng and Cheng, Dawei and Dai, Tao},
-  journal={arXiv preprint arXiv:2406.03751},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  year={2025}
+}
+
+@inproceedings{bian2024multi,
+  title={Multi-patch prediction: adapting language models for time series representation learning},
+  author={Bian, Yuxuan and Ju, Xuan and Li, Jiangtong and Xu, Zhijian and Cheng, Dawei and Xu, Qiang},
+  booktitle={Forty-first International Conference on Machine Learning},
   year={2024}
 }
 ```
