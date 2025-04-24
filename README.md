@@ -2,6 +2,8 @@
 
 
 ## 📰 News
+🚩 Updates (2025-04-24) Our paper has been featured on [时序人](https://mp.weixin.qq.com/s/q6JaGTuEyb4d4fCcYw4cEg), [QuantML](https://zhuanlan.zhihu.com/p/29805411840), and [PaperWeekly](https://mp.weixin.qq.com/s/0O8CMX8KryHt3X_kkAzRKg).
+
 🚩 Updates (2025-02-27) Initial version available on arXiv [FinTSB](https://arxiv.org/abs/2502.18834).
 
 🚩 Updates (2025-02-24) First version of the FinTSB code released.
