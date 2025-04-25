@@ -63,7 +63,9 @@ FinTSB
 
 The pipeline of FinTSB includes the Data layer, Training layer, Backtesting layer, and Feedback layer, as shown in the figure below.
 
-
+<div align="center">
+      <img src="./assets/pipeline.png" style="width:80%; ">
+</div>
 
 All configs are located in `./configs`. For instance, to train the LSTM model using the FinTSB dataset, simply run:
 
