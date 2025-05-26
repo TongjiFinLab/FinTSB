@@ -97,10 +97,10 @@ If you find this repo useful, please consider citing our paper as follows:
   year={2025}
 }
 
-@article{hu2025timefilter,
+@inproceedings{hu2025timefilter,
   title={TimeFilter: Patch-Specific Spatial-Temporal Graph Filtration for Time Series Forecasting},
   author={Hu, Yifan and Zhang, Guibin and Liu, Peiyuan and Lan, Disen and Li, Naiqi and Cheng, Dawei and Dai, Tao and Xia, Shu-Tao and Pan, Shirui},
-  journal={arXiv preprint arXiv:2501.13041},
+  booktitle={Forty-two International Conference on Machine Learning},
   year={2025}
 }
 
