@@ -120,9 +120,15 @@ If you find this repo useful, please consider citing our paper as follows:
 ```
 
 ## 🙏 Acknowledgement
+All thanks to contributors. 
+<a href="https://github.com/TongjiFinLab/FinTSB/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=TongjiFinLab/FinTSB" />
+</a>
+
 Special thanks to the following repositories for their invaluable code and datasets:
 
-- [QLib](https://github.com/microsoft/qlib)
+- [Eastmoney Inc](https://www.eastmoney.com/)
+- [Microsoft QLib](https://github.com/microsoft/qlib)
 
 ## 📩 Contact
 If you have any questions, please contact [huyf0122@gmail.com](huyf0122@gmail.com) or submit an issue.
