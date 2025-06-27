@@ -97,11 +97,13 @@ If you find this repo useful, please consider citing our paper as follows:
   year={2025}
 }
 
-@inproceedings{hu2025timefilter,
-  title={TimeFilter: Patch-Specific Spatial-Temporal Graph Filtration for Time Series Forecasting},
-  author={Hu, Yifan and Zhang, Guibin and Liu, Peiyuan and Lan, Disen and Li, Naiqi and Cheng, Dawei and Dai, Tao and Xia, Shu-Tao and Pan, Shirui},
-  booktitle={Forty-two International Conference on Machine Learning},
-  year={2025}
+@inproceedings{
+hu2025timefilter,
+title={TimeFilter: Patch-Specific Spatial-Temporal Graph Filtration for Time Series Forecasting},
+author={Yifan Hu and Guibin Zhang and Peiyuan Liu and Disen Lan and Naiqi Li and Dawei Cheng and Tao Dai and Shu-Tao Xia and Shirui Pan},
+booktitle={Forty-second International Conference on Machine Learning},
+year={2025},
+url={https://openreview.net/forum?id=490VcNtjh7}
 }
 
 @inproceedings{hu2025adaptive,
