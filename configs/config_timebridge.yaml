@@ -1,21 +1,29 @@
 qlib_init:
-  provider_uri: "/data/linq/.qlib/qlib_data/cn_data"
+  provider_uri: "~/qlib_data/cn_data"
   region: cn
+
+data_loader_config: &data_loader_config
+  class: StaticDataLoader
+  module_path: qlib.data.dataset.loader
+  kwargs:
+    config: ./data/FinTSB_cn/merged_dataset.pkl  # filepath
 
 model_config: &model_config
   seq_len: 20
   pred_len: 1
-  e_layers: 2
-  t_layers: 2
+  ca_layers: 0 
+  pd_layers: 1
+  ia_layers: 3
   period: 5
-  enc_in: 360
-  dec_in: 360
+  stable_len: 5
+  enc_in: 5
   c_out: 1
   d_model: 64
   d_ff: 32
   n_heads:  4
   activation: 'gelu'
   dropout: 0.1
+  attn_dropout: 0.1
 
 
 task:
@@ -24,31 +32,34 @@ task:
     module_path: src/model_backbone.py
     kwargs:
       lr: 0.0001
-      n_epochs: 1
-      max_steps_per_epoch: 1000
+      n_epochs: 3
+      max_steps_per_epoch: 5000
       early_stop: 1
-      seed: 2024
-      logdir: output/hs1124/timebridge
+      seed: 2025
+      logdir: output/timebridge
       model_type: TimeBridge
       model_config: *model_config
       freeze_model: False
       model_init_state:
   dataset:
-    class: MTSDatasetH
+    class: UnifiedTSDatasetH
+    module_path: src/dataset.py
     kwargs:
+      handler:
+        class: DataHandler
+        module_path: qlib.data.dataset.handler
+        kwargs:
+          data_loader: *data_loader_config
+      segments:
+        train: [ 2000-01-03, 2000-09-01 ]
+        valid: [ 2000-09-04, 2000-10-06 ]
+        test: [ 2000-10-09, 2000-12-15 ]
       seq_len: 20
       horizon: 1
-      batch_size: 32
-  qlib_dataset:
-    class: BENCH_Step
-    kwargs:
-      market: csi1300_ext
-      benchmark: SH000300 
-      feat: Alpha360
-      label: r1
+      batch_size: 512
 
 
 strategy_config: &strategy_config
-  topk: 10
-  bad_thresh: -0.05
-  hold_thresh: 2
+  topk: 30
+  hold_thre: 5
+  commission_rate: 0.001
