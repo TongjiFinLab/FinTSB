@@ -39,6 +39,7 @@ from src.models.Transformer import Transformer
 from src.models.TCN import TCN
 from src.models.GAT import GAT
 from src.models.GCN import GCN
+from src.models.TimeBridge import TimeBridge
 
 device = "cuda:1" if torch.cuda.is_available() else "cpu"
 
